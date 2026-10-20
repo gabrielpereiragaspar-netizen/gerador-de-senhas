@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
 
-:root{
+:root {
     --branco: white;
     --cor-de-fundo: #00162E;
     --fundo-senha: #00244D;
@@ -10,95 +10,259 @@
     --roboto-mono: 'Roboto Mono', monospace;
 }
 
-*{
+* {
+    box-sizing: border-box;
     font-weight: 400;
 }
 
-body{
+body {
+    margin: 0;
+    min-height: 100vh;
     color: var(--branco);
     background-color: var(--cor-de-fundo);
     font-family: var(--roboto);
 }
 
-.titulo-principal{
+.conteudo {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    padding: 32px 0 48px;
+}
+
+.conteudo-titulo {
+    text-align: center;
+    margin: 28px 0 48px;
+}
+
+.icone-cadeado {
+    width: 30px;
+    height: 30px;
+}
+
+.titulo-principal {
     font-family: var(--roboto-mono);
     font-size: 32px;
+    margin: 12px 0;
 }
 
-.titulo-secundario{
-    font-size: 24px;
+.titulo-secundario {
+    font-size: 18px;
+    margin: 0;
 }
 
-.conteudo-titulo{
-    text-align: center;
-    margin-top: 80px;
-}
-
-.conteudo-senha{
-    margin-top: 80px; 
+.conteudo-senha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
     background: var(--fundo-senha);
-    padding: 24px;
+    padding: 20px 24px;
     border-bottom: 6px solid var(--borda);
 }
 
-#campo-senha{
-    background-color: var(--fundo-senha);
+.conteudo-senha label {
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+#campo-senha {
+    min-width: 0;
+    flex: 1;
+    background-color: transparent;
     border: none;
     color: var(--branco);
     font-family: var(--roboto-mono);
-    font-size: 40px;
-    width: 70%;
+    font-size: clamp(18px, 3vw, 30px);
 }
 
-#campo-senha:focus{
-    outline: none;
+#campo-senha:focus {
+    outline: 2px solid var(--borda);
+    outline-offset: 4px;
 }
 
-.conteudo{
-    max-width: 1200px;
-    margin: 0 auto;
+.botao-copiar,
+.botao-gerar {
+    color: var(--branco);
+    background: transparent;
+    border: 1px solid var(--borda);
+    padding: 10px 14px;
+    cursor: pointer;
+    font-family: var(--roboto);
 }
 
-.parametro{
+.botao-copiar:hover,
+.botao-gerar:hover {
+    background: #00366e;
+}
+
+.parametro {
     background-color: var(--fundo-texto);
     border: 2px solid var(--borda);
-    margin-top: 32px;
+    margin-top: 28px;
     padding: 24px;
 }
 
-.parametro-titulo{
+.parametro-titulo {
     font-family: var(--roboto-mono);
-    font-size: 28px;
+    font-size: 24px;
+    margin: 0 0 28px;
 }
 
-.parametro-senha__titulo{
-    font-size:24px;
-}
-
-.parametro-coluna__senha{
+.parametro-coluna__senha {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-.parametro-senha{
-    width: 50%;
-    margin: 0 auto;
+    gap: 28px;
 }
 
-.parametro-senha-botoes{
+.parametro-senha {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.parametro-senha__titulo {
+    display: block;
+    font-size: 16px;
+    margin: 0 0 16px;
+}
+
+.parametro-senha-botoes {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.parametro-senha__botao{
-
+.parametro-senha__botao {
+    width: 42px;
+    height: 40px;
+    color: var(--branco);
+    background: transparent;
+    border: 1px solid var(--borda);
+    font-size: 22px;
+    cursor: pointer;
 }
-.parametro-senha__texto{
 
+.parametro-senha__botao:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.parametro-senha__texto {
+    display: grid;
+    place-items: center;
+    min-width: 46px;
+    height: 40px;
+    background: var(--fundo-senha);
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+    font-family: var(--roboto-mono);
+}
+
+.opcao {
+    display: block;
+    margin: 8px 0;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.opcao input {
+    accent-color: var(--borda);
+    margin-right: 6px;
+}
+
+.forca-trilho {
+    height: 12px;
+    width: 100%;
+    background: #00162E;
+    margin: 18px 0 8px;
+}
+
+#forca-preenchimento {
+    height: 100%;
+    width: 25%;
+    background: #ff4141;
+    transition: width 0.2s, background 0.2s;
+}
+
+.forca-legendas {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #d4e4f7;
+}
+
+.texto-forca {
+    font-size: 13px;
+    margin: 8px 0 0;
+}
+
+.mensagem {
+    min-height: 18px;
+    font-size: 13px;
+    color: #b9d8ff;
+}
+
+.botao-gerar {
+    margin-top: 8px;
+    width: 100%;
+    padding: 14px;
 }
 
 @media screen and (min-width: 768px) {
-    .parametro-coluna__senha{
+    .conteudo {
+        padding-top: 48px;
+    }
+
+    .conteudo-titulo {
+        margin-top: 36px;
+    }
+
+    .parametro-coluna__senha {
         flex-direction: row;
+        align-items: flex-start;
+        gap: 28px;
+    }
+
+    .parametro-senha {
+        flex: 1;
+        width: 0;
+    }
+
+    .parametro-senha__titulo {
+        min-height: 38px;
+    }
+
+    .botao-gerar {
+        width: auto;
+        min-width: 220px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .conteudo-senha {
+        flex-wrap: wrap;
+        padding: 16px;
+    }
+
+    #campo-senha {
+        flex-basis: 65%;
+    }
+
+    .botao-copiar {
+        margin-left: auto;
+    }
+
+    .parametro {
+        padding: 18px;
+    }
+
+    .titulo-principal {
+        font-size: 26px;
+    }
+
+    .titulo-secundario {
+        font-size: 16px;
     }
 }
